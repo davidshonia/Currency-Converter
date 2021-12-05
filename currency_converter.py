@@ -1,6 +1,8 @@
 from tkinter import *
 
-root = Tk()
 
+gui = Tk(className='Currency Converter')
 
-root.mainloop()
+gui.geometry("300x300")
+
+gui.mainloop() 
