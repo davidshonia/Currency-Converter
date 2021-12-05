@@ -9,12 +9,14 @@ doc = BeautifulSoup(result.text, "html.parser")
 soup = doc.find_all("td")
 
 dolari = float(soup[2].text)
-euro = soup[4].text
-pound = soup[8].text
+euro = float(soup[4].text)
+pound = float(soup[8].text)
 
-gui = Tk(className='Currency Converter')
-
-gui.geometry("300x300")
+gui = Tk(className='CURRENCY')
+gui.geometry("250x150")
+gui.option_add('*Font', 'monospace')
+gui.configure(bg='#01c26e')
+gui.resizable(False, False)
 
 lari_input = Entry(gui, width=5)
 lari_input.pack()
@@ -22,7 +24,7 @@ lari_input.pack()
 dolari_text = Label(gui, text="USD = " + str(dolari))
 dolari_text.pack()
 
-answer = Label(gui, text=" ")
+answer = Label(gui, text="0.00")
 answer.pack()
 
 
