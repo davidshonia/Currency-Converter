@@ -2,15 +2,15 @@ from tkinter import *
 from bs4 import BeautifulSoup
 import requests
 
-url = "https://halykbank.ge/en/individuals/currency"
+url = "https://www.tbcbank.ge/web/en/exchange-rates"
 result = requests.get(url)
 doc = BeautifulSoup(result.text, "html.parser")
 
-soup = doc.find_all("td")
+soup = doc.find_all("div",{"class","currRate"})
 
-dolari = float(soup[2].text)
-euro = float(soup[4].text)
-pound = float(soup[8].text)
+dolari = float(soup[1].text)
+euro = float(soup[3].text)
+pound = float(soup[5].text)
 
 gui = Tk(className='CURRENCY')
 gui.geometry("250x150")
